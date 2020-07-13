@@ -10,16 +10,77 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
+class Node:
+    def __init__(self,data,n=None):
+        self.data = data
+        self.next_node = n
+    
+    def get_next(self):
+        return self.next_node
+    
+    def set_next(self, val):
+        self.next_node = val
+
+    def get_data(self):
+        return self.data
+
+    def set_data(self,d):
+         self.data = d     
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+#         self.tail = None
+
+#     def     
+
+
 class Stack:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = []
 
     def __len__(self):
-        pass
+        return self.size
 
-    def push(self, value):
-        pass
+
+    def push(self,value):
+        self.storage.append(value)
+        self.size = len(self.storage)
 
     def pop(self):
-        pass
+        if self.size == 0:
+            return None
+        else:
+            popped = self.storage.pop() 
+            self.size = len(self.storage)
+            return popped                 
+
+
+
+# class Stack:
+#     def __init__(self, head=None):
+#         self.storage = 0
+#         self.head = head
+#         self.foot = None
+        
+
+#     def __len__(self):
+#         return self.storage
+
+#     def push(self, value):
+#         new_node  = Node(value,self.head.get_next())
+#         if self.head == None:
+#             self.head = new_node
+#             self.storage += 1
+#         else:
+#             return    
+
+        
+
+#     def pop(self):
+#         this_node = self.head
+        
+        
+#         self.head = Node(this_node.get_next())
+#         self.storage -= 1 
