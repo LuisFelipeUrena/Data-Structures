@@ -77,33 +77,63 @@ class LinkedList:
          return val      
         
 
-
-
-
-
-
-
+# Class Applied with LinkedList
 class Stack:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = LinkedList()
 
     def __len__(self):
         return self.size
 
 
     def push(self,value):
-        self.storage.append(value)
-        self.size = len(self.storage)
+        self.storage.add_to_tail(value)
+        self.size +=1
 
     def pop(self):
         if self.size == 0:
             return None
             
         else:
-            popped = self.storage.pop() 
-            self.size = len(self.storage)
+            popped = self.storage.remove_tail()
+            self.size -=1
             return popped                 
+
+
+
+
+# Class Applied with Array(python list)
+# class Stack:
+#     def __init__(self, head=None):
+#         self.storage = 0
+#         self.head = head
+#         self.foot = None
+
+
+
+
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+
+#     def __len__(self):
+#         return self.size
+
+
+#     def push(self,value):
+#         self.storage.append(value)
+#         self.size = len(self.storage)
+
+#     def pop(self):
+#         if self.size == 0:
+#             return None
+            
+#         else:
+#             popped = self.storage.pop() 
+#             self.size = len(self.storage)
+#             return popped                 
 
 
 
