@@ -27,12 +27,60 @@ class Node:
     def set_data(self,d):
          self.data = d     
 
-# class LinkedList:
-#     def __init__(self):
-#         self.head = None
-#         self.tail = None
 
-#     def     
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def add_to_tail(self,value):
+        new_node = Node(value)
+        if self.head is None and self.tail is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.set_next(new_node)
+            self.tail = new_node
+    
+    
+    def remove_head(self):
+        if self.head is None and self.tail is None:
+            return
+        if not self.head.get_next():
+            head = self.head
+            self.head = None
+            self.tail = None
+            return head.get_data()   
+        val = self.head.get_data()
+        self.head = self.head.get_next()  
+        return val
+
+    def remove_tail(self):
+         if self.head is None and self.tail is None:
+            return
+
+         if self.head is self.tail:
+             value = self.head.get_data()
+             self.head = None
+             self.tail = None
+             return value
+
+         current = self.head
+
+         while current.get_next() is not self.tail:
+             current = current.get_next()
+
+         val = self.tail.get_data()
+         self.tail = current
+         self.tail.next_node = None
+
+         return val      
+        
+
+
+
+
+
 
 
 class Stack:
@@ -51,6 +99,7 @@ class Stack:
     def pop(self):
         if self.size == 0:
             return None
+            
         else:
             popped = self.storage.pop() 
             self.size = len(self.storage)
