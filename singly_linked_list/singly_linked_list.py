@@ -29,21 +29,32 @@ class LinkedList:
     def remove_head(self):
         # we have to make the value next to the head the 
         # the new head of the list
-        current_next = self.head.next
-
-        if self.head is self.tail:
-            self.head.value = None
-            self.tail.value = None
-        else:
-            # self.head = None
-            self.head = current_next
+        if self.head is None and self.tail is None:
+            return
+        if not self.head.next:
+            head = self.head
+            self.head = None
+            self.tail = None
+            return head.value  
+        val = self.head.value
+        self.head = self.head.next  
+        return val
     
     def contains(self,value):
         start = self.head
         while (start is not None):
             if start.value == value:
                 return value
-            start = start.next   
-                     
-                
+            start = start.next  
+
+    def get_max(self):
+        if not self.head:
+            return None
+        max_value = self.head.value
+        current = self.head
+        while current:
+            if current.value > max_value:
+                max_value = current.value
+            current = current.next
+        return max_value          
 
